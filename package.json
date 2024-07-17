@@ -1,0 +1,62 @@
+{
+  "name": "qsologger-ui",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "preact build --no-prerender",
+    "serve": "sirv build --cors --single",
+    "dev": "preact watch",
+    "lint": "eslint src",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "preact",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "ignorePatterns": [
+      "build/"
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-react-jsx": "^7.24.7",
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-typescript": "^7.24.7",
+    "dotenv": "^16.4.5",
+    "gapi-script": "^1.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-watch-typeahead": "^2.2.2",
+    "preact": "^10.22.1",
+    "preact-render-to-string": "^5.2.1",
+    "preact-router": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7",
+    "@types/babel__preset-env": "^7",
+    "@types/enzyme": "^3.10.12",
+    "@types/identity-obj-proxy": "^3",
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^4.0.1",
+    "eslint": "^8.20.0",
+    "eslint-config-preact": "^1.3.0",
+    "jest": "^29.7.0",
+    "jest-preset-preact": "^4.0.5",
+    "preact-cli": "^3.5.1",
+    "preact-cli-plugin-env-vars": "^1.2.1",
+    "typescript": "^4.5.2"
+  },
+  "jest": {
+    "preset": "jest-preset-preact",
+    "setupFiles": [
+      "<rootDir>/tests/__mocks__/browserMocks.ts",
+      "<rootDir>/tests/__mocks__/setupTests.ts"
+    ]
+  }
+}
