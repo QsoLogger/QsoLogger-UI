@@ -1,0 +1,26 @@
+{
+    "": {
+        "language": "zh_CN",
+        "plural-forms": "nplurals=1; plural=0;"
+    },
+    "LocaleName": "简体中文 (P.R.China)",
+    "Menu": "菜单",
+    "Login": "登入",
+    "Logout": "登出",
+    "Home": "首页",
+    "About": "关于",
+    "Settings": "设置",
+    "Help": "帮助",
+    "Language": "语言",
+    "User": "用户",
+    "Password": "密码",
+    "Username must be 1 to 16 characters, including letters and numbers": "用户名只能使用大小写字母和数字，长度1到16字符",
+    "Register": "注册",
+    "Username": "用户名",
+    "Email": "邮箱",
+    "Callsign": "呼号",
+    "Status": "状态",
+    "Operation": "操作",
+    "New": "新建",
+    "Indices": "指数列表"
+}

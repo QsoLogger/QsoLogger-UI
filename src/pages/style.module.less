@@ -1,0 +1,45 @@
+.container {
+  font-size: 12px;
+  line-height: 20px;
+  .trigger {
+    margin-left: -50px;
+    display: inline-flex;
+    width: 50px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .logo {
+    height: 64px;
+    width: 64px;
+    background-color: #62d6fb;
+  }
+  .disabled {
+    cursor: not-allowed;
+    background-color: #f8f8f8;
+    text-decoration: line-through;
+    color: #ccc;
+  }
+  :global {
+    .ant-table.ant-table-small {
+      font-size: 12px;
+    }
+    .ant-col {
+      font-size: 12px;
+    }
+  }
+}
+.loading {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}

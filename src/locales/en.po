@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"domain: messages\n"
+"language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+msgid "LocaleName"
+msgstr "English (United States)"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "About" 
+msgstr "About"
+
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "User"
+msgstr "User"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Username must be 1 to 16 characters, including letters and numbers"
+msgstr "Username must be 1 to 16 characters, including letters and numbers"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Callsign"
+msgstr "Callsign"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Operation"
+msgstr "Operation"
+
+msgid "New"
+msgstr "New"

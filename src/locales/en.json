@@ -1,0 +1,25 @@
+{
+    "": {
+        "language": "en_US",
+        "plural-forms": "nplurals=2; plural=(n>1);"
+    },
+    "LocaleName": "English (United States)",
+    "Menu": "Menu",
+    "Login": "Login",
+    "Logout": "Logout",
+    "Home": "Home",
+    "About": "About",
+    "Settings": "Settings",
+    "Help": "Help",
+    "Language": "Language",
+    "User": "User",
+    "Password": "Password",
+    "Username must be 1 to 16 characters, including letters and numbers": "Username must be 1 to 16 characters, including letters and numbers",
+    "Register": "Register",
+    "Username": "Username",
+    "Email": "Email",
+    "Callsign": "Callsign",
+    "Status": "Status",
+    "Operation": "Operation",
+    "New": "New"
+}

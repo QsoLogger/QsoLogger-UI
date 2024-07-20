@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "qso-logger-dev",
+    "dialect": "mysql",
+    "host":"127.0.0.1",
+    "username": "root",
+    "password": "EeJN8QE22@u*i5yt"
+
+  },
+  "production": {
+    "database": "qso-logger-prod",
+    "dialect": "mysql",
+    "host":"localhost",
+    "username": "root",
+    "password": "EeJN8QE22@u*i5yt"
+  }
+}

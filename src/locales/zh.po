@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"domain: messages\n"
+"language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+msgid "LocaleName"
+msgstr "简体中文 (P.R.China)"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Login"
+msgstr "登入"
+
+msgid "Logout"
+msgstr "登出"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "About" 
+msgstr "关于"
+
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Username must be 1 to 16 characters, including letters and numbers"
+msgstr "用户名只能使用大小写字母和数字，长度1到16字符"
+
+msgid "Register"
+msgstr "注册"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "Callsign"
+msgstr "呼号"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Operation"
+msgstr "操作"
+
+msgid "New"
+msgstr "新建"
