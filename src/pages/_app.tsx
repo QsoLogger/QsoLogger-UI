@@ -4,14 +4,10 @@ import React, { ReactNode, createContext, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import {
-  FundOutlined,
   LoadingOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  MonitorOutlined,
-  StockOutlined,
-  UnorderedListOutlined,
   BookOutlined,
   UserOutlined,
   SettingOutlined,
@@ -39,10 +35,8 @@ import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { useLocalState } from '../utils/cache';
-import { Locale } from '../types';
 import LocaleSwitcher from '../components/LocaleSwitcher';
 import i18n, { __ } from '../utils/i18n';
-import { link } from 'fs';
 
 dayjs.locale('zh-cn');
 
@@ -146,18 +140,18 @@ const Frame = (props: { children: ReactNode }) => {
               <Dropdown
                 menu={{
                   items: [
-                    {
-                      label: (
-                        <Space onClick={() => router.push('/user/settings')}>
-                          <SettingOutlined />
-                          {__('Settings')}
-                        </Space>
-                      ),
-                      key: 'settings',
-                    },
-                    {
-                      type: 'divider',
-                    },
+                    // {
+                    //   label: (
+                    //     <Space onClick={() => router.push('/user/settings')}>
+                    //       <SettingOutlined />
+                    //       {__('Settings')}
+                    //     </Space>
+                    //   ),
+                    //   key: 'settings',
+                    // },
+                    // {
+                    //   type: 'divider',
+                    // },
                     {
                       label: (
                         <Space onClick={logout}>

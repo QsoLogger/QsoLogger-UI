@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext, useEffect } from 'react';
 import { MobxContext } from '@/src/pages/_app';
 import { Select } from 'antd';

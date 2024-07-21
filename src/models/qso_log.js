@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
 'use strict';
+/* eslint-disable no-unused-vars */
+
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class DevTabPrefixQsoLog extends Model {
@@ -165,8 +166,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      tableName: 'dev_tab_prefix_qso_log',
-      modelName: 'DevTabPrefixQsoLog',
+      tableName: 'qso_log',
+      modelName: 'QsoLog',
       indexes: [
         {
           fields: ['userId'],

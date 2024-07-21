@@ -7,16 +7,10 @@ const Settings = () => {
     <div>
       <h2>{__('Settings')}</h2>
       <Form>
-        <Form.Item name="username" label="用户名">
+        <Form.Item name="rname" label="用户名">
           <Input />
         </Form.Item>
         <Form.Item name="callsign" label="呼号">
-          <Input />
-        </Form.Item>
-        <Form.Item name="rig" label="电台">
-          <Input />
-        </Form.Item>
-        <Form.Item name="qth" label="QTH">
           <Input />
         </Form.Item>
         <Form.Item name="email" label="邮件">

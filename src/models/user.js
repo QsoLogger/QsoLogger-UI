@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
 'use strict';
+/* eslint-disable no-unused-vars */
+
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -14,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
+      username: DataTypes.STRING,
+      avatar_url: DataTypes.STRING,
       name: DataTypes.STRING,
       callsign: DataTypes.STRING,
       passwd: DataTypes.STRING,
@@ -24,6 +27,12 @@ module.exports = (sequelize, DataTypes) => {
       zip: DataTypes.STRING,
       status: DataTypes.INTEGER,
       group: DataTypes.INTEGER,
+      token: DataTypes.STRING,
+      userIp: DataTypes.STRING,
+      loginAt: {
+        type: 'TIMESTAMP',
+        allowNull: false,
+      },
     },
     {
       sequelize,
@@ -32,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       indexes: [
         {
           unique: true,
-          fields: ['name'],
+          fields: ['username'],
         },
         {
           unique: true,

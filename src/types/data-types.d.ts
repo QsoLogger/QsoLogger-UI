@@ -13,7 +13,6 @@ export interface DataRow {
   updatedAt?: DateTime;
 }
 
-
 export type Bool = boolean | 0 | 1 | null | undefined;
 
 export interface UserItem extends DataRow {
@@ -22,4 +21,5 @@ export interface UserItem extends DataRow {
   passwd: string;
   status: number;
   group: number;
+  token: string;
 }

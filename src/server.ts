@@ -21,6 +21,7 @@ import { API_URL } from './config';
 
 export const options = {};
 dotenv.config();
+
 // Instantiate Fastify with some config
 const app: any = Fastify({
   logger: true,
@@ -48,13 +49,14 @@ app.register(Cookie, {
 app.register(Session, {
   secret: process.env.SECRET,
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 24 * 60 * 60 * 7,
     httpOnly: true, // Optional, cookie is only accessible through HTTP(S) headers
     secure: process.env.NODE_ENV !== 'development',
   },
   store: new RedisStore({
     client: new Redis({
       db: Number(process.env?.REDIS_SESSION ?? 4),
+      password: process.env?.REDIS_PASS,
       enableAutoPipelining: true,
     }),
   }),
@@ -64,12 +66,15 @@ app.register(Multipart);
 app.register(AutoLoad, {
   dir: path.join(__dirname, 'plugins'),
 });
-app.register(Proxy, {
-  upstream: `${process.env.NEXT_PUBLIC_API_URL}/api/qsolog`,
-  prefix: '/api/qsolog', // optional
-  http2: false, // optional
-});
 
+// register api proxy only if external api url is provided
+if (API_URL) {
+  app.register(Proxy, {
+    upstream: `${API_URL}/api/`,
+    prefix: '/api/', // optional
+    http2: false, // optional
+  });
+}
 // This loads all plugins defined in routes
 // define your routes in one of these
 app.register(AutoLoad, {

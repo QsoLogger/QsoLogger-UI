@@ -8,7 +8,7 @@ import { __ } from '@/src/utils/i18n';
 import { MobxContext } from '@/src/pages/_app';
 
 const User = () => {
-  const { store } = useContext(MobxContext) as any;
+  useContext(MobxContext) as any;
   const userApiUrl = '/api/v1/user';
   const { mutate, data } = useSWR(userApiUrl, async (u) =>
     axios.get(u).then((r) => r.data)
@@ -22,16 +22,28 @@ const User = () => {
       dataIndex: 'id',
     },
     {
+      title: __('Username'),
+      dataIndex: 'username',
+    },
+    {
+      title: __('Name'),
+      dataIndex: 'name',
+    },
+    {
       title: __('Callsign'),
       dataIndex: 'callsign',
     },
     {
-      title: __('Username'),
-      dataIndex: 'name',
-    },
-    {
       title: __('Email'),
       dataIndex: 'email',
+    },
+    {
+      title: __('IP'),
+      dataIndex: 'userIp',
+    },
+    {
+      title: __('Login At'),
+      dataIndex: 'loginAt',
     },
     {
       title: __('Status'),

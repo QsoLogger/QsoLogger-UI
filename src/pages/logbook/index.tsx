@@ -13,18 +13,16 @@ import style from './style.module.less';
 import { __ } from '@/src/utils/i18n';
 import { useLocalState } from '@/src/utils/cache';
 import { locatorToLatLng, distance, latLngToLocator } from 'qth-locator';
-import { API_URL } from '@/src/config';
 import { MobxContext } from '@/src/pages/_app';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
-const Logbook = (props) => {
+const Logbook = () => {
   const [initValues, setInitValues] = useLocalState<any>('logbook', {});
   const from = useRef<HTMLElement>();
   const to = useRef<HTMLElement>();
 
-  const context = useContext(MobxContext) as any;
-  console.log({ props, context, process }, process.env.NEXT_PUBLIC_API_URL);
+  useContext(MobxContext) as any;
 
   const [form] = Form.useForm();
   const [size, setSize] = useState<any>();
@@ -79,7 +77,6 @@ const Logbook = (props) => {
     if (navigator.geolocation && !formValues.userGrid && !formValues.userGps) {
       navigator.geolocation.getCurrentPosition((location) => {
         const coords = location.coords;
-        // if (coords.accuracy < 10000) {
         const coord = [coords.latitude, coords.longitude];
         try {
           const maidenHead = latLngToLocator(...coord);

@@ -14,10 +14,10 @@ const userApi = async (fastify: any) => {
 
   fastify.get('/', async (request: any) => {
     const { search, page = 0, pageSize = 100 } = request.query;
-    const params: { name?: any; status?: any } = {};
+    const params: { username?: any; status?: any } = {};
     if (search) {
       params[Op.or] = {
-        name: { [Op.like]: `%${search}%` },
+        username: { [Op.like]: `%${search}%` },
         email: { [Op.like]: `%${search}%` },
       };
     }
@@ -41,29 +41,50 @@ const userApi = async (fastify: any) => {
     };
   });
 
-  fastify.get('/:id', async (request: FastifyRequest & { params: { id: number }; session: { id: number } }) => {
-    const paramId = Number(request.params?.id);
-    const sessionId = Number(request.session?.id);
-    const id = paramId || sessionId;
-    const { User } = fastify.db;
-    if (id) {
-      const user = await User.findByPk(id);
-      return user;
-    } else {
-      return null;
+  fastify.get(
+    '/:id',
+    async (
+      request: FastifyRequest & {
+        params: { id: number };
+        session: { id: number };
+      }
+    ) => {
+      const paramId = Number(request.params?.id);
+      const sessionId = Number(request.session?.id);
+      const id = paramId || sessionId;
+      const { User } = fastify.db;
+      if (id) {
+        const user = await User.findByPk(id);
+        return user;
+      } else {
+        return null;
+      }
     }
-  });
+  );
 
   fastify.post('/', async (request: any) => {
     const { ...user } = request.body;
     const { User } = fastify.db;
     const { isSuper } = request.session;
     const cnt = await User.count();
-    if (isSuper || cnt === 0) { // 是管理员或是第一个用户
-      const data = pick(user, ['name', 'callsign', 'email', 'passwd', 'intro', 'mobile', 'address', 'zip', 'status']);
-      console.log({data})
-      if (user.passwd && user.passwd === user.confirm) data.passwd = hashPassword(user.passwd, user.name);
-      console.log({data})
+    if (isSuper || cnt === 0) {
+      // 是管理员或是第一个用户
+      const data = pick(user, [
+        'username',
+        'name',
+        'callsign',
+        'email',
+        'passwd',
+        'intro',
+        'mobile',
+        'address',
+        'zip',
+        'status',
+      ]);
+      console.log({ data });
+      if (user.passwd && user.passwd === user.confirm)
+        data.passwd = hashPassword(user.passwd, user.username);
+      console.log({ data });
       const [result] = await User.scope('withPassword').upsert(data);
       return result;
     }
@@ -73,27 +94,32 @@ const userApi = async (fastify: any) => {
   fastify.post('/register', async (request: any) => {
     const { ...user } = request.body;
     const { User } = fastify.db;
-    const data = pick(user, ['name', 'passwd']);
+    const data = pick(user, ['username', 'passwd']);
     const userExists = await User.count({
       where: {
-        name: user.name,
+        username: user.username,
       },
     });
     if (!userExists) {
-      if (user.passwd) data.passwd = hashPassword(user.passwd, user.name);
-      await User.upsert({ ...data, email:`${user.name}@example.com`,status: 0, group: 0 });
+      if (user.passwd) data.passwd = hashPassword(user.passwd, user.username);
+      await User.upsert({
+        ...data,
+        email: `${user.username}@example.com`,
+        status: 0,
+        group: 0,
+      });
     }
     return user;
   });
 
   fastify.post('/login', async (request: any, reply) => {
-    const { name, passwd } = request.body;
+    const { username, passwd } = request.body;
     const { User } = fastify.db;
-    if (name && passwd) {
+    if (username && passwd) {
       const result = await User.findOne({
         where: {
-          name,
-          passwd: hashPassword(passwd, name),
+          username,
+          passwd: hashPassword(passwd, username),
           status: 1,
         },
       });
